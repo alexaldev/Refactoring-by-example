@@ -1,0 +1,10 @@
+
+class DomainTest {
+
+
+
+    @Before
+    fun ""() {
+
+    }
+}

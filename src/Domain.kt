@@ -14,14 +14,13 @@ val PLAYS = listOf(
     Play("Othello", Type.Tragedy)
 )
 
-val INVOICE =
-    Invoice(
+val INVOICE = Invoice(
         "BigCo", listOf(
             Performance("hamlet", 55),
             Performance("as-like", 35),
             Performance("othello", 40)
         )
-    )
+)
 
 
 fun statement(invoice: Invoice, plays: List<Play>): String {
