@@ -32,23 +32,7 @@ fun statement(invoice: Invoice, plays: List<Play>): String {
     invoice.performances.forEachIndexed { index, performance ->
 
         val play = plays[index]
-        var thisAmount = 0
-
-        when(play.type){
-            Type.Tragedy -> {
-                thisAmount = 40000
-                if (performance.audience > 30) {
-                    thisAmount += 1000 * (performance.audience - 30)
-                }
-            }
-            Type.Comedy -> {
-                thisAmount = 30000
-                if ( performance.audience > 20) {
-                    thisAmount += 10000 + 500 * (performance.audience - 20)
-                }
-                thisAmount += 300 * performance.audience
-            }
-        }
+        var thisAmount = amountFor(performance, play)
 
         // add volume credits
         volumeCredits += Math.max(performance.audience - 30, 0)
@@ -62,6 +46,29 @@ fun statement(invoice: Invoice, plays: List<Play>): String {
     result += "Amount owed is \$${totalAmount/100}\n"
     result += "You earned $volumeCredits credits"
     return result
+}
+
+private fun amountFor(performance: Performance, play: Play): Int {
+
+    var thisAmount = 0
+
+    when(play.type){
+        Type.Tragedy -> {
+            thisAmount = 40000
+            if (performance.audience > 30) {
+                thisAmount += 1000 * (performance.audience - 30)
+            }
+        }
+        Type.Comedy -> {
+            thisAmount = 30000
+            if ( performance.audience > 20) {
+                thisAmount += 10000 + 500 * (performance.audience - 20)
+            }
+            thisAmount += 300 * performance.audience
+        }
+    }
+
+    return thisAmount
 }
 
 fun main() {
