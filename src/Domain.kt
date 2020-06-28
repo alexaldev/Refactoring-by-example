@@ -1,18 +1,20 @@
-class Play(val name: String, val type: Type)
+import java.lang.IllegalArgumentException
+import kotlin.math.floor
 
 enum class Type {
     Tragedy, Comedy
 }
 
+class Play(val name: String, val type: Type)
+
 class Performance(val playId: String, val audience: Int)
 
 class Invoice(val customer: String, val performances: List<Performance>)
 
-val PLAYS = listOf(
-    Play("Hamlet", Type.Tragedy),
-    Play("As You Like it", Type.Comedy),
-    Play("Othello", Type.Tragedy)
-)
+val PLAYS = hashMapOf(
+    "hamlet" to Play("Hamlet", Type.Tragedy),
+    "as-like" to Play("As you Like it", Type.Comedy),
+    "othello" to Play("Othello", Type.Tragedy))
 
 val INVOICE = Invoice(
         "BigCo", listOf(
@@ -23,52 +25,43 @@ val INVOICE = Invoice(
 )
 
 
-fun statement(invoice: Invoice, plays: List<Play>): String {
+fun statement(invoice: Invoice, plays: Map<String, Play>): String {
 
-    var totalAmount = 0
-    var volumeCredits = 0
+    var totalAmount = 0.0
+    var volumeCredits = 0.0
     var result = "Statement for ${invoice.customer}\n"
+    print(result)
 
-    invoice.performances.forEachIndexed { index, performance ->
+    invoice.performances.forEach { aPerformance ->
+        val play = plays[aPerformance.playId]!!
+        var thisAmount = 0
 
-        val play = plays[index]
-        var thisAmount = amountFor(performance, play)
+        when (play.type) {
+            Type.Tragedy -> {
+                thisAmount = 40000
+                if (aPerformance.audience > 30) {
+                    thisAmount += 1000 * (aPerformance.audience - 30)
+                }
+            }
+            Type.Comedy -> {
+                thisAmount = 30000
+                if (aPerformance.audience > 20) {
+                    thisAmount += 10000 + 500 * (aPerformance.audience - 20)
+                }
+                thisAmount += 300 * aPerformance.audience
+            }
+        }
 
-        // add volume credits
-        volumeCredits += Math.max(performance.audience - 30, 0)
-        // add extra credit for every ten comedy attendees
-        if (Type.Comedy == play.type) volumeCredits += Math.floor(performance.audience.toDouble() / 5).toInt()
+        volumeCredits += Math.max(aPerformance.audience - 30, 0)
+        if (play.type == Type.Comedy) volumeCredits += floor(aPerformance.audience.toDouble() / 5.0)
 
-        result += "${play.name}: \$${thisAmount/100} (${performance.audience} seats)\n"
+        println("     ${play.name}: \$" + "%.2f".format((thisAmount/100)) + "(${aPerformance.audience} seats)")
         totalAmount += thisAmount
     }
 
     result += "Amount owed is \$${totalAmount/100}\n"
     result += "You earned $volumeCredits credits"
     return result
-}
-
-private fun amountFor(performance: Performance, play: Play): Int {
-
-    var thisAmount = 0
-
-    when(play.type){
-        Type.Tragedy -> {
-            thisAmount = 40000
-            if (performance.audience > 30) {
-                thisAmount += 1000 * (performance.audience - 30)
-            }
-        }
-        Type.Comedy -> {
-            thisAmount = 30000
-            if ( performance.audience > 20) {
-                thisAmount += 10000 + 500 * (performance.audience - 20)
-            }
-            thisAmount += 300 * performance.audience
-        }
-    }
-
-    return thisAmount
 }
 
 fun main() {
