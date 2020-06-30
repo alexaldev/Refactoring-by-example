@@ -24,7 +24,6 @@ val INVOICE = Invoice(
     )
 )
 
-
 fun statement(invoice: Invoice, plays: Map<String, Play>): String {
 
     var totalAmount = 0.0
@@ -33,7 +32,7 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
     print(result)
 
     invoice.performances.forEach { aPerformance ->
-        val play = plays[aPerformance.playId]!!
+        val play = playFor(aPerformance)
         var thisAmount = amountFor(aPerformance, play)
 
         volumeCredits += Math.max(aPerformance.audience - 30, 0)
@@ -46,6 +45,10 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
     result += "Amount owed is \$${totalAmount / 100}\n"
     result += "You earned $volumeCredits credits"
     return result
+}
+
+fun playFor(performance: Performance): Play {
+    return PLAYS[performance.playId] ?: error("Unable to parse ${performance.playId} to a Play")
 }
 
 fun amountFor(performance: Performance, play: Play): Int {
@@ -72,6 +75,5 @@ fun amountFor(performance: Performance, play: Play): Int {
 }
 
 fun main() {
-
     print(statement(INVOICE, PLAYS))
 }
