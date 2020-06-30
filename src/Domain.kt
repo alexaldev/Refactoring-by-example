@@ -1,4 +1,3 @@
-import java.lang.IllegalArgumentException
 import kotlin.math.floor
 
 enum class Type {
@@ -50,24 +49,26 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
 }
 
 fun amountFor(performance: Performance, play: Play): Int {
-    var thisAmount = 0
+
+    var result = 0
 
     when (play.type) {
         Type.Tragedy -> {
-            thisAmount = 40000
+            result = 40000
             if (performance.audience > 30) {
-                thisAmount += 1000 * (performance.audience - 30)
+                result += 1000 * (performance.audience - 30)
             }
         }
         Type.Comedy -> {
-            thisAmount = 30000
+            result = 30000
             if (performance.audience > 20) {
-                thisAmount += 10000 + 500 * (performance.audience - 20)
+                result += 10000 + 500 * (performance.audience - 20)
             }
-            thisAmount += 300 * performance.audience
+            result += 300 * performance.audience
         }
     }
-    return thisAmount
+
+    return result
 }
 
 fun main() {
