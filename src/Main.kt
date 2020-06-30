@@ -33,13 +33,14 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
 
     invoice.performances.forEach { aPerformance ->
 
-        var thisAmount = amountFor(aPerformance)
-
+        // Add volume credits
         volumeCredits += Math.max(aPerformance.audience - 30, 0)
         if (playFor(aPerformance).type == Type.Comedy) volumeCredits += floor(aPerformance.audience.toDouble() / 5.0)
 
-        println("     ${playFor(aPerformance).name}: \$ ${thisAmount / 100} (${aPerformance.audience} seats)")
-        totalAmount += thisAmount
+        // Print this order
+        println("     ${playFor(aPerformance).name}: \$ ${amountFor(aPerformance) / 100} (${aPerformance.audience} seats)")
+        
+        totalAmount += amountFor(aPerformance)
     }
 
     result += "Amount owed is \$${totalAmount / 100}\n"
