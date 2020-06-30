@@ -14,14 +14,15 @@ class Invoice(val customer: String, val performances: List<Performance>)
 val PLAYS = hashMapOf(
     "hamlet" to Play("Hamlet", Type.Tragedy),
     "as-like" to Play("As you Like it", Type.Comedy),
-    "othello" to Play("Othello", Type.Tragedy))
+    "othello" to Play("Othello", Type.Tragedy)
+)
 
 val INVOICE = Invoice(
-        "BigCo", listOf(
-            Performance("hamlet", 55),
-            Performance("as-like", 35),
-            Performance("othello", 40)
-        )
+    "BigCo", listOf(
+        Performance("hamlet", 55),
+        Performance("as-like", 35),
+        Performance("othello", 40)
+    )
 )
 
 
@@ -34,34 +35,39 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
 
     invoice.performances.forEach { aPerformance ->
         val play = plays[aPerformance.playId]!!
-        var thisAmount = 0
-
-        when (play.type) {
-            Type.Tragedy -> {
-                thisAmount = 40000
-                if (aPerformance.audience > 30) {
-                    thisAmount += 1000 * (aPerformance.audience - 30)
-                }
-            }
-            Type.Comedy -> {
-                thisAmount = 30000
-                if (aPerformance.audience > 20) {
-                    thisAmount += 10000 + 500 * (aPerformance.audience - 20)
-                }
-                thisAmount += 300 * aPerformance.audience
-            }
-        }
+        var thisAmount = amountFor(aPerformance, play)
 
         volumeCredits += Math.max(aPerformance.audience - 30, 0)
         if (play.type == Type.Comedy) volumeCredits += floor(aPerformance.audience.toDouble() / 5.0)
 
-        println("     ${play.name}: \$" + "%.2f".format((thisAmount/100)) + "(${aPerformance.audience} seats)")
+        println("     ${play.name}: \$ ${thisAmount / 100} (${aPerformance.audience} seats)")
         totalAmount += thisAmount
     }
 
-    result += "Amount owed is \$${totalAmount/100}\n"
+    result += "Amount owed is \$${totalAmount / 100}\n"
     result += "You earned $volumeCredits credits"
     return result
+}
+
+fun amountFor(performance: Performance, play: Play): Int {
+    var thisAmount = 0
+
+    when (play.type) {
+        Type.Tragedy -> {
+            thisAmount = 40000
+            if (performance.audience > 30) {
+                thisAmount += 1000 * (performance.audience - 30)
+            }
+        }
+        Type.Comedy -> {
+            thisAmount = 30000
+            if (performance.audience > 20) {
+                thisAmount += 10000 + 500 * (performance.audience - 20)
+            }
+            thisAmount += 300 * performance.audience
+        }
+    }
+    return thisAmount
 }
 
 fun main() {

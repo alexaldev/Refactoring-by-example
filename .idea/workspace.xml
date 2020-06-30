@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ab1973-2a88-4b86-9de7-11e13b1a3627" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/refactoring_sets/ExtractFunction.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/DomainKt$WhenMappings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/DomainKt$WhenMappings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/DomainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/DomainKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/Invoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/Invoice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/META-INF/Refactoring_Martin_Fowler.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/META-INF/Refactoring_Martin_Fowler.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/Performance.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/Performance.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/Play.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/Play.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/test/DomainTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Refactoring_Martin_Fowler/test/DomainTestKt.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/DomainTest.kt" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Domain.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="50" column="57" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+            <state relative-caret-position="231">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="e#0#66#0" expanded="true" />
               </folding>
@@ -43,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/common/generated/_Collections.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="27914">
               <caret line="1647" selection-start-line="1647" selection-end-line="1647" />
             </state>
           </provider>
@@ -81,10 +70,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="135" />
-    <option name="width" value="1440" />
-    <option name="height" value="810" />
+    <option name="x" value="1920" />
+    <option name="y" value="-2" />
+    <option name="width" value="1920" />
+    <option name="height" value="1082" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -93,22 +82,7 @@
     <panes>
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Refactoring-by-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Refactoring-by-example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Refactoring-by-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Refactoring-by-example" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -117,7 +91,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Hacker Rank" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -183,10 +157,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
+    <frame x="1920" y="-2" width="1920" height="1082" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1748401" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17643923" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -195,8 +169,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32916668" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24479167" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -213,18 +187,6 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/Domain.kt</url>
-          <line>36</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test/DomainTest.kt">
@@ -244,34 +206,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/refactoring_sets/ExtractFunction.kt">
+    <entry file="file://$PROJECT_DIR$/src/test/DomainTest.kt" />
+    <entry file="file://$PROJECT_DIR$/src/Domain.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/DomainTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+        <state relative-caret-position="231">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$KOTLIN_BUNDLED$/lib/kotlin-stdlib-sources.jar!/common/generated/_Collections.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
+        <state relative-caret-position="27914">
           <caret line="1647" selection-start-line="1647" selection-end-line="1647" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain.kt">
+    <entry file="file://$PROJECT_DIR$/src/refactoring_sets/ExtractFunction.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="50" column="57" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#66#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
         </state>
       </provider>
     </entry>
