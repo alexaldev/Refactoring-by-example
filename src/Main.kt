@@ -33,7 +33,7 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
 
     invoice.performances.forEach { aPerformance ->
 
-        var thisAmount = amountFor(aPerformance, playFor(aPerformance))
+        var thisAmount = amountFor(aPerformance)
 
         volumeCredits += Math.max(aPerformance.audience - 30, 0)
         if (playFor(aPerformance).type == Type.Comedy) volumeCredits += floor(aPerformance.audience.toDouble() / 5.0)
@@ -51,11 +51,11 @@ fun playFor(performance: Performance): Play {
     return PLAYS[performance.playId] ?: error("Unable to parse ${performance.playId} to a Play")
 }
 
-fun amountFor(performance: Performance, play: Play): Int {
+fun amountFor(performance: Performance): Int {
 
     var result = 0
 
-    when (play.type) {
+    when (playFor(performance).type) {
         Type.Tragedy -> {
             result = 40000
             if (performance.audience > 30) {
