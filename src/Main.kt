@@ -27,17 +27,16 @@ val INVOICE = Invoice(
 fun statement(invoice: Invoice, plays: Map<String, Play>): String {
 
     var totalAmount = 0.0
-    var volumeCredits = 0.0
     var result = "Statement for ${invoice.customer}\n"
     print(result)
 
     invoice.performances.forEach { aPerformance ->
-
         // Print this order
         println("     ${playFor(aPerformance).name}: \$ ${amountFor(aPerformance) / 100} (${aPerformance.audience} seats)")
         totalAmount += amountFor(aPerformance)
     }
 
+    var volumeCredits = 0.0
     invoice.performances.forEach { aPerformance ->
         volumeCredits += volumeCreditsFor(aPerformance)
     }
