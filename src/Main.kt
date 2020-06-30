@@ -32,13 +32,13 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
     invoice.performances.forEach { aPerformance ->
         println("     ${playFor(aPerformance).name}: \$ ${amountFor(aPerformance) / 100} (${aPerformance.audience} seats)")
     }
-    
-    result += "Amount owed is \$${appleSauce(invoice)/100}\n"
+
+    result += "Amount owed is \$${totalAmount(invoice)/100}\n"
     result += "You earned ${totalVolumeCredits(invoice)} credits"
     return result
 }
 
-fun appleSauce(invoice: Invoice): Int {
+fun totalAmount(invoice: Invoice): Int {
     var totalAmount = 0
     invoice.performances.forEach { aPerformance ->
         totalAmount += amountFor(aPerformance)
