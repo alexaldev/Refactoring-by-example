@@ -32,13 +32,13 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
     print(result)
 
     invoice.performances.forEach { aPerformance ->
-        val play = playFor(aPerformance)
-        var thisAmount = amountFor(aPerformance, play)
+
+        var thisAmount = amountFor(aPerformance, playFor(aPerformance))
 
         volumeCredits += Math.max(aPerformance.audience - 30, 0)
-        if (play.type == Type.Comedy) volumeCredits += floor(aPerformance.audience.toDouble() / 5.0)
+        if (playFor(aPerformance).type == Type.Comedy) volumeCredits += floor(aPerformance.audience.toDouble() / 5.0)
 
-        println("     ${play.name}: \$ ${thisAmount / 100} (${aPerformance.audience} seats)")
+        println("     ${playFor(aPerformance).name}: \$ ${thisAmount / 100} (${aPerformance.audience} seats)")
         totalAmount += thisAmount
     }
 
