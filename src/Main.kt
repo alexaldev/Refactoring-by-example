@@ -26,7 +26,6 @@ val INVOICE = Invoice(
 
 fun statement(invoice: Invoice, plays: Map<String, Play>): String {
 
-    var totalAmount = 0.0
     var result = "Statement for ${invoice.customer}\n"
     print(result)
 
@@ -34,13 +33,19 @@ fun statement(invoice: Invoice, plays: Map<String, Play>): String {
         println("     ${playFor(aPerformance).name}: \$ ${amountFor(aPerformance) / 100} (${aPerformance.audience} seats)")
     }
 
-    invoice.performances.forEach { aPerformance ->
-        totalAmount += amountFor(aPerformance)
-    }
+    var totalAmount = appleSauce(invoice)
 
     result += "Amount owed is \$${totalAmount / 100}\n"
     result += "You earned ${totalVolumeCredits(invoice)} credits"
     return result
+}
+
+fun appleSauce(invoice: Invoice): Int {
+    var totalAmount = 0
+    invoice.performances.forEach { aPerformance ->
+        totalAmount += amountFor(aPerformance)
+    }
+    return totalAmount
 }
 
 fun totalVolumeCredits(invoice: Invoice): Double {
